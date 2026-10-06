@@ -22,8 +22,7 @@ I had already built a CDC async FIFO earlier, but it had these flaws:
 Earlier design: inside the old design folder
 ## Architecture
 
-![Async FIFO architecture]([images/architecture.png](https://github.com/hemanth028/async-fifo-gray-code-cdc/blob/main/async_fifo1_block.png))
-
+![Async FIFO architecture](async_fifo1_block.png)
 | Module | Clock domain | Job |
 |---|---|---|
 | `fifo_top` | none | Top-level wrapper. Only connects the other modules. |
