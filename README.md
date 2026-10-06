@@ -27,7 +27,7 @@ Earlier design: [link to my previous async FIFO repo]
 
 | Module | Clock domain | Job |
 |---|---|---|
-| `fifo1` | none | Top-level wrapper. Only connects the other modules. |
+| `fifo_top` | none | Top-level wrapper. Only connects the other modules. |
 | `fifomem` | writes on `wclk`, reads combinationally | Dual-port memory. Writes when `winc && !wfull`. |
 | `wptr_full` | `wclk` | Binary write counter, Gray write pointer, `wfull` flag. |
 | `rptr_empty` | `rclk` | Binary read counter, Gray read pointer, `rempty` flag. |
@@ -40,9 +40,6 @@ Earlier design: [link to my previous async FIFO repo]
 - The synchronized pointers are a little out of date, which is safe: a flag may stay asserted slightly longer than necessary, but is never released too early.
 
 
-## Verification
-
-Tested with two unrelated clocks. `tb_async_fifo.v` checks reset values, `rempty` clearing only after data crosses the synchronizer, in-order data, `wfull` at full depth, blocked overflow writes, flag recovery, pointer wrap-around, and a random 1000-word read/write stress test against expected values. All tests pass in Icarus Verilog. This is RTL simulation only; synthesis and a dedicated CDC tool have not been run.
 
 ## Use of AI
 
