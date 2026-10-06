@@ -19,11 +19,10 @@ I had already built a CDC async FIFO earlier, but it had these flaws:
 
 **How this project fixes them:** pointers are converted to Gray code and pass through 2-flop synchronizers (`sync_r2w`, `sync_w2r`) before use in the other domain. Full and empty are computed from these synchronized Gray pointers, with an extra pointer bit to tell full from empty. Writes are blocked when `wfull` is high and reads when `rempty` is high, so the FIFO cannot overflow or underflow.
 
-Earlier design: [link to my previous async FIFO repo]
-
+Earlier design: inside the old design folder
 ## Architecture
 
-![Async FIFO architecture](images/architecture.png)
+![Async FIFO architecture]([images/architecture.png](https://github.com/hemanth028/async-fifo-gray-code-cdc/blob/main/async_fifo1_block.png))
 
 | Module | Clock domain | Job |
 |---|---|---|
